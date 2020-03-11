@@ -53,7 +53,7 @@ server.delete('/api/users/:id', (req, res) => {
     const { id } = req.params;
     const matchedUser = user.find(user => user.id === id);
     if (matchedUser){
-        user = user.filter(user => user !== matchedUser );
+        user = user.filter(user => user.id !== matchedUser.id );
         res.status(201).json({ 
             api: "DELETE user success",
             user: user
